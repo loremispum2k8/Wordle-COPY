@@ -41,12 +41,12 @@ deleteKey.addEventListener('click',(e)=>{
             console.log(rowTrack);
             console.log(squareTrack)
         } else {
-            row[rowTrack].children[squareTrack-1].innerHTML = '';
-            squareTrack--;
-            row[rowTrack].children[squareTrack].style.border = '2px solid #CAD3D8';
-            if(squareTrack === 0 && rowTrack > 0){
-                rowTrack--;
-                squareTrack = 5;
+            if(squareTrack===0){
+                console.log("Can't remove")
+            } else {
+                row[rowTrack].children[squareTrack-1].innerHTML = '';
+                squareTrack--;
+                row[rowTrack].children[squareTrack].style.border = '2px solid #CAD3D8';
             }
         }
     }
