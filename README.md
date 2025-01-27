@@ -1,1 +1,1 @@
-# Wordle-COPY
+# Wordle
