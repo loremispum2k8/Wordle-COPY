@@ -21,6 +21,8 @@ enterKey.addEventListener('click', (e)=>{
         //pass = 1;
         //pass = 0
         for(let v=0; v<5; v++){
+            row[rowTrack].children[v].classList.remove('bubbly');
+            row[rowTrack].children[v].classList.add(`finished${v}`)
             //console.log(row[rowTrack].children[v].textContent)
             if(row[rowTrack].children[v].textContent === word[v]){
                 row[rowTrack].children[v].classList.add("green");
