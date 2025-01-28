@@ -2,7 +2,7 @@ let word = ['A','P','P','L','E'];
 
 
 
-let pass = 0;
+//let pass = 0;
 
 let deleteKey = document.querySelector('.deleteKey');
 let enterKey = document.querySelector('.enterKey');
@@ -18,7 +18,8 @@ let rowTrack = 0;
 
 enterKey.addEventListener('click', (e)=>{
     if(squareTrack === 5){
-        pass = 1;
+        //pass = 1;
+        //pass = 0
         for(let v=0; v<5; v++){
             //console.log(row[rowTrack].children[v].textContent)
             if(row[rowTrack].children[v].textContent === word[v]){
@@ -32,6 +33,9 @@ enterKey.addEventListener('click', (e)=>{
                 row[rowTrack].children[v].removeAttribute('style');
             }
         }
+
+        squareTrack = 0;
+        rowTrack++;
     }
 })
 
@@ -42,13 +46,6 @@ let keyboardKey = document.getElementsByClassName("keyboard-key");
 for(let i = 0; i < keyboardKey.length; i++){
     keyboardKey[i].addEventListener('click', (e)=>{
             if(rowTrack <= 5 && rowTrack !== 6){
-                if(pass === 1){
-                    if(squareTrack === 5){
-                    squareTrack = 0;
-                    rowTrack++;
-                    pass = 0
-                    }
-                }
                 row[rowTrack].children[squareTrack].style.border = '3px solid grey';
                 row[rowTrack].children[squareTrack].classList.add('bubbly')
                 row[rowTrack].children[squareTrack].textContent = e.target.textContent
