@@ -29,6 +29,8 @@ let rowTrack = 0;
 
 console.log(word)
 
+let winner = ''
+
 enterKey.addEventListener('click', (e)=>{
     if(squareTrack === 5){
         //pass = 1;
@@ -69,10 +71,21 @@ enterKey.addEventListener('click', (e)=>{
             }
         }
 
+        let newArr = [];
+        for(let j=0; j<5;j++){
+            if(row[rowTrack].children[j].classList.contains('green')){
+                newArr.push(word[j])
+            }
+        }
+
         squareTrack = 0;
         rowTrack++;
         if(rowTrack === 6){
             alert(word.join(''))
+        }
+
+        if(newArr.join('') === word.join('')){
+            alert('You Won')
         }
     }
 })
