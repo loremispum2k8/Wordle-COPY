@@ -1,6 +1,19 @@
-let word = ['A','P','P','L','E'];
-
-
+const words = [
+    "apple", "baker", "chime", "dingo", "entry", "fence", "grape", "honey", "index", "jolly",
+    "kiosk", "lemon", "mocha", "noble", "opera", "plaza", "quilt", "roast", "sunny", "trapd",
+    "unitd", "vapor", "waltz", "xenon", "yellow", "zebra", "bison", "viper", "tiger", "gains",
+    "click", "valve", "wafer", "hatch", "lotus", "lunar", "serum", "flame", "haste", "chase",
+    "risky", "scout", "flint", "fever", "piano", "sharp", "haste", "craft", "brisk", "blaze",
+    "adore", "beach", "candy", "doubt", "echoes", "flint", "grind", "hatch", "imply", "jumpy",
+    "keenly", "latch", "moose", "needy", "ogled", "plume", "quash", "roast", "sweep", "tramp",
+    "usher", "vivid", "waste", "youth", "zesty", "vexed", "wiper", "cater", "dance", "elite",
+    "fiery", "gloat", "haloed", "irate", "jiffy", "knack", "loopa", "mirth", "nasty", "opted",
+    "puree", "quizy", "resty", "scorn", "tweak", "unite", "vigor", "wafer", "xooms", "vasea"
+  ];
+  
+random = Math.round(Math.random()*words.length);
+let normalWords = words[random].split('');
+let word = normalWords.map(letter => letter.toUpperCase());
 
 //let pass = 0;
 
@@ -14,30 +27,53 @@ let squareTrack = 0;
 let rowTrack = 0;
 
 
-
+console.log(word)
 
 enterKey.addEventListener('click', (e)=>{
     if(squareTrack === 5){
         //pass = 1;
         //pass = 0
         for(let v=0; v<5; v++){
-            row[rowTrack].children[v].classList.remove('bubbly');
-            row[rowTrack].children[v].classList.add(`finished${v}`)
             //console.log(row[rowTrack].children[v].textContent)
             if(row[rowTrack].children[v].textContent === word[v]){
                 row[rowTrack].children[v].classList.add("green");
                 row[rowTrack].children[v].removeAttribute('style');
+                for(let i = 0; i < keyboardKey.length; i++){
+                    if (keyboardKey[i].textContent === word[v]){
+                        keyboardKey[i].style.backgroundColor = '#6FD61B';
+                        keyboardKey[i].style.border = '2px solid #6FD61B';
+                        keyboardKey[i].style.color = 'white';
+                    }
+                }
+
             }else if(word.includes(row[rowTrack].children[v].textContent)){
                 row[rowTrack].children[v].classList.add("yellow")
                 row[rowTrack].children[v].removeAttribute('style');
+                for(let i = 0; i < keyboardKey.length; i++){
+                    if (keyboardKey[i].textContent === row[rowTrack].children[v].textContent){
+                        keyboardKey[i].style.backgroundColor = '#ECD81E';
+                        keyboardKey[i].style.border = '2px solid #ECD81E';
+                        keyboardKey[i].style.color = 'white';
+                    }
+                }
             }else{
                 row[rowTrack].children[v].classList.add("grey")
                 row[rowTrack].children[v].removeAttribute('style');
+                for(let i = 0; i < keyboardKey.length; i++){
+                    if ((keyboardKey[i].textContent === row[rowTrack].children[v].textContent) && (keyboardKey[i].textContent !== word[v])){
+                        keyboardKey[i].style.backgroundColor = '#747C81';
+                        keyboardKey[i].style.border = '2px solid #747C81';
+                        keyboardKey[i].style.color = 'white';
+                    }
+                }
             }
         }
 
         squareTrack = 0;
         rowTrack++;
+        if(rowTrack === 6){
+            alert(word.join(''))
+        }
     }
 })
 
@@ -75,3 +111,5 @@ deleteKey.addEventListener('click',(e)=>{
         }
     }
 })
+
+console.log(keyboardKey);

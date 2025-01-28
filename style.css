@@ -137,22 +137,3 @@ body{
     animation-timing-function: ease-in;
     animation-iteration-count: 1;
 }
-.finished0,.finished1,.finished2,.finished3,.finished4{
-    animation-name: hover !important;
-    animation-duration: 0.2s !important;
-    animation-timing-function: ease-in !important;
-    animation-iteration-count: 1 !important;
-    animation-delay: 0ms;
-}
-.finished1{
-    animation-delay: 300ms;
-}
-.finished2{
-    animation-delay: 600ms;
-}
-.finished3{
-    animation-delay: 900ms;
-}
-.finished4{
-    animation-delay: 1200ms;
-}
