@@ -29,8 +29,6 @@ let rowTrack = 0;
 
 console.log(word)
 
-let winner = ''
-
 enterKey.addEventListener('click', (e)=>{
     if(squareTrack === 5){
         //pass = 1;
@@ -80,12 +78,12 @@ enterKey.addEventListener('click', (e)=>{
 
         squareTrack = 0;
         rowTrack++;
-        if(rowTrack === 6){
-            alert(word.join(''))
+        if((rowTrack === 6) && (newArr.join('') !== word.join(''))){
+            alert(`You lost - ${word.join('')}`);
         }
 
         if(newArr.join('') === word.join('')){
-            alert('You Won')
+            alert('You Won');
         }
     }
 })
