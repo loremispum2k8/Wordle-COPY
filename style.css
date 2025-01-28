@@ -66,7 +66,7 @@ body{
     color: white;
 }
 .grey{
-    border: 1px solid #747C81;
+    border: 2px solid #747C81;
     background-color: #747C81;
     color: white;
 }
@@ -124,4 +124,16 @@ body{
 .keyboard-key:active, .deleteKey:active, .enterKey:active{
     background-color: #a6afc5;
     border:2px solid #a6afc5;
+}
+
+@keyframes hover{
+    0%{transform: scale(1)}
+    50%{transform: scale(1.06);}
+    100%{transform: scale(1.01);;}
+}
+.bubbly{
+    animation-name:hover;
+    animation-duration: 0.1s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
 }
