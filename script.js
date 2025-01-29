@@ -1,3 +1,40 @@
+let deleteKey = document.querySelector('.deleteKey');
+let enterKey = document.querySelector('.enterKey');
+
+let row = document.getElementsByClassName('row');
+let square = document.getElementsByClassName("square");
+
+console.log(square)
+
+let squareTrack = 0;
+let rowTrack = 0;
+
+let result = document.querySelector('.result');
+let keyboard = document.querySelector('.keyboard');
+
+
+function resetFunction(){
+    squareTrack = 0;
+    rowTrack = 0;
+    result.textContent = '';
+    result.style.backgroundColor='transparent';
+    result.style.border = '1px solid transparent'
+    for(let r=0; r<square.length;r++){
+        square[r].textContent = '';
+        square[r].className = 'square'
+    }
+    for(let i = 0; i < keyboardKey.length; i++){
+        keyboardKey[i].className='keyboard-key';
+        keyboardKey[i].removeAttribute('style')
+    }
+    keyboard.children[1].children[0].classList.add('longer-key');
+    keyboard.children[1].children[8].classList.add('longer-key')
+    random = Math.round(Math.random()*words.length);
+    normalWords = words[random].split('');
+    word = normalWords.map(letter => letter.toUpperCase());
+    console.log(word)
+}
+
 const words = [
     "apple", "baker", "chime", "dingo", "entry", "fence", "grape", "honey", "index", "jolly",
     "kiosk", "lemon", "mocha", "noble", "opera", "plaza", "quilt", "roast", "sunny", "trapd",
@@ -7,7 +44,7 @@ const words = [
     "adore", "beach", "candy", "doubt", "echoes", "flint", "grind", "hatch", "imply", "jumpy",
     "keenly", "latch", "moose", "needy", "ogled", "plume", "quash", "roast", "sweep", "tramp",
     "usher", "vivid", "waste", "youth", "zesty", "vexed", "wiper", "cater", "dance", "elite",
-    "fiery", "gloat", "haloed", "irate", "jiffy", "knack", "loopa", "mirth", "nasty", "opted",
+    "fiery", "gloat", "haloe", "irate", "jiffy", "knack", "loopa", "mirth", "nasty", "opted",
     "puree", "quizy", "resty", "scorn", "tweak", "unite", "vigor", "wafer", "xooms", "vasea"
   ];
   
@@ -16,16 +53,6 @@ let normalWords = words[random].split('');
 let word = normalWords.map(letter => letter.toUpperCase());
 
 //let pass = 0;
-
-let deleteKey = document.querySelector('.deleteKey');
-let enterKey = document.querySelector('.enterKey');
-
-let row = document.getElementsByClassName('row');
-let square = document.getElementsByClassName("square");
-
-let squareTrack = 0;
-let rowTrack = 0;
-
 
 console.log(word)
 
@@ -41,7 +68,7 @@ enterKey.addEventListener('click', (e)=>{
                 for(let i = 0; i < keyboardKey.length; i++){
                     if (keyboardKey[i].textContent === word[v]){
                         keyboardKey[i].style.backgroundColor = '#6FD61B';
-                        keyboardKey[i].style.border = '2px solid #6FD61B';
+                        keyboardKey[i].style.border = '2px solid rgb(111, 214, 27)';
                         keyboardKey[i].style.color = 'white';
                     }
                 }
@@ -51,9 +78,13 @@ enterKey.addEventListener('click', (e)=>{
                 row[rowTrack].children[v].removeAttribute('style');
                 for(let i = 0; i < keyboardKey.length; i++){
                     if (keyboardKey[i].textContent === row[rowTrack].children[v].textContent){
-                        keyboardKey[i].style.backgroundColor = '#ECD81E';
-                        keyboardKey[i].style.border = '2px solid #ECD81E';
-                        keyboardKey[i].style.color = 'white';
+                        let bg = window.getComputedStyle(keyboardKey[i]);
+                        console.log(bg.backgroundColor )
+                        if(bg.backgroundColor !== 'rgb(111, 214, 27)'){
+                            keyboardKey[i].style.backgroundColor = '#ECD81E';
+                            keyboardKey[i].style.border = '2px solid #ECD81E';
+                            keyboardKey[i].style.color = 'white';
+                        }
                     }
                 }
             }else{
@@ -79,11 +110,19 @@ enterKey.addEventListener('click', (e)=>{
         squareTrack = 0;
         rowTrack++;
         if((rowTrack === 6) && (newArr.join('') !== word.join(''))){
-            alert(`You lost - ${word.join('')}`);
+            result.textContent = 'You Lost'
+            result.style.backgroundColor = ' #d61b1b';
+            result.style.border = '1px solid #d61b1b';
+            result.style.display = 'flex';
+            let timeout = setTimeout(resetFunction,5000);
         }
 
         if(newArr.join('') === word.join('')){
-            alert('You Won');
+            result.textContent='You Won';
+            result.style.backgroundColor = '#6FD61B';
+            result.style.border = '1px solid #6FD61B';
+            result.style.display = 'flex';
+            let timeout = setTimeout(resetFunction,5000);
         }
     }
 })
@@ -122,5 +161,3 @@ deleteKey.addEventListener('click',(e)=>{
         }
     }
 })
-
-console.log(keyboardKey);

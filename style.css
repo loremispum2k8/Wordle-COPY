@@ -8,10 +8,16 @@
     box-sizing: border-box;
     font-family: 'Montserat';
 }
+img{
+    display: block;
+    max-width: 100%;
+}
 ::selection{
     display: none;
 }
 body{
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;;
     display: flex;
     justify-content: center;
     width: 100vw;
@@ -76,8 +82,7 @@ body{
     color: #364C5D;
 }
 .result{
-    border: 1px solid #6FD61B;
-    background-color: #6FD61B;
+    display: none;
     color: white;
     font-size: 12px;
     border-radius: 6px;
