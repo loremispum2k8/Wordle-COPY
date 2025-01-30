@@ -224,10 +224,6 @@ body{
     margin-right:10px;
     margin-top:10px;
     cursor: pointer;
-    transition: transform 0.3s;
-}
-.showWordCard svg:hover{
-    transform: rotate(45deg);
 }
 .showWordCard h2{
     color: #4f575e;
