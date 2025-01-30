@@ -1,3 +1,8 @@
+let showWordContainer = document.querySelector('.showWordContainer');
+let showWordCard = document.querySelector('.showWordCard');
+let exit = document.querySelector('.exit-icon');
+let actualWord = document.querySelector('.actualWord')
+
 let deleteKey = document.querySelector('.deleteKey');
 let enterKey = document.querySelector('.enterKey');
 
@@ -32,7 +37,12 @@ function resetFunction(){
     random = Math.round(Math.random()*words.length);
     normalWords = words[random].split('');
     word = normalWords.map(letter => letter.toUpperCase());
-    console.log(word)
+    console.log(word);
+
+    showWordContainer.removeAttribute('style');
+    showWordContainer.classList.add('animationContainer');
+    showWordCard.classList.add('animationCard');
+    exit.classList.add('animationExit');
 }
 
 const words = [
@@ -41,8 +51,8 @@ const words = [
     "unitd", "vapor", "waltz", "xenon", "yellow", "zebra", "bison", "viper", "tiger", "gains",
     "click", "valve", "wafer", "hatch", "lotus", "lunar", "serum", "flame", "haste", "chase",
     "risky", "scout", "flint", "fever", "piano", "sharp", "haste", "craft", "brisk", "blaze",
-    "adore", "beach", "candy", "doubt", "echoes", "flint", "grind", "hatch", "imply", "jumpy",
-    "keenly", "latch", "moose", "needy", "ogled", "plume", "quash", "roast", "sweep", "tramp",
+    "adore", "beach", "candy", "doubt", "flint", "grind", "hatch", "imply", "jumpy",
+    ,"latch", "moose", "needy", "ogled", "plume", "quash", "roast", "sweep", "tramp",
     "usher", "vivid", "waste", "youth", "zesty", "vexed", "wiper", "cater", "dance", "elite",
     "fiery", "gloat", "haloe", "irate", "jiffy", "knack", "loopa", "mirth", "nasty", "opted",
     "puree", "quizy", "resty", "scorn", "tweak", "unite", "vigor", "wafer", "xooms", "vasea"
@@ -51,6 +61,8 @@ const words = [
 random = Math.round(Math.random()*words.length);
 let normalWords = words[random].split('');
 let word = normalWords.map(letter => letter.toUpperCase());
+
+actualWord.textContent = word.join('')
 
 //let pass = 0;
 
@@ -114,7 +126,7 @@ enterKey.addEventListener('click', (e)=>{
             result.style.backgroundColor = ' #d61b1b';
             result.style.border = '1px solid #d61b1b';
             result.style.display = 'flex';
-            let timeout = setTimeout(resetFunction,5000);
+            let timeout = setTimeout(resetFunction,4000);
         }
 
         if(newArr.join('') === word.join('')){
@@ -122,7 +134,7 @@ enterKey.addEventListener('click', (e)=>{
             result.style.backgroundColor = '#6FD61B';
             result.style.border = '1px solid #6FD61B';
             result.style.display = 'flex';
-            let timeout = setTimeout(resetFunction,5000);
+            let timeout = setTimeout(resetFunction,4000);
         }
     }
 })
@@ -160,4 +172,12 @@ deleteKey.addEventListener('click',(e)=>{
             }
         }
     }
+})
+
+exit.addEventListener('click',()=>{
+    showWordContainer.style.display = 'none'
+    actualWord.textContent = word.join('');
+    showWordContainer.classList.remove('animationContainer');
+    showWordCard.classList.remove('animationCard');
+    exit.classList.remove('animationExit');
 })
