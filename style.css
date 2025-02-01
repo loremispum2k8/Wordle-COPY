@@ -271,17 +271,6 @@ body{
         margin-top: 20px;
         margin-left: calc(50vw - 48.5px);
     }
-    .square{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 50px;
-        width: 50px;
-        border: 2px solid #CAD3D8;
-        background-color: #fafcff;
-        border-radius: 6px;
-        font-size: 24px;
-    }
     .container{
         width: 100%;
     }
