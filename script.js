@@ -47,14 +47,10 @@ function resetFunction(){
 
 const words = [
     "apple", "baker", "chime", "dingo", "entry", "fence", "grape", "honey", "index", "jolly",
-    "kiosk", "lemon", "mocha", "noble", "opera", "plaza", "quilt", "roast", "sunny", "trapd",
-    "unitd", "vapor", "waltz", "xenon", "yellow", "zebra", "bison", "viper", "tiger", "gains",
-    "click", "valve", "wafer", "hatch", "lotus", "lunar", "serum", "flame", "haste", "chase",
-    "risky", "scout", "flint", "fever", "piano", "sharp", "haste", "craft", "brisk", "blaze",
-    "adore", "beach", "candy", "doubt", "flint", "grind", "hatch", "imply", "jumpy",
-    ,"latch", "moose", "needy", "ogled", "plume", "quash", "roast", "sweep", "tramp",
-    "usher", "vivid", "waste", "youth", "zesty", "vexed", "wiper", "cater", "dance", "elite",
-    "fiery", "gloat", "haloe", "irate", "jiffy", "knack", "loopa", "mirth", "nasty", "opted",
+    "kiosk", "lemon", "mocha", "noble", "opera", "plaza", "quilt", "roast", "sunny", "trapd", "vapor", "waltz", "xenon", "zebra", "bison", "viper", "tiger", "gains",
+    "click", "valve", "wafer", "hatch", "lotus", "lunar", "serum", "flame", "haste", "chase", "risky", "scout", "flint", "fever", "piano", "sharp", "haste", "craft", "brisk", "blaze",
+    "adore", "beach", "candy", "doubt", "flint", "grind", "hatch", "imply", "jumpy", "latch", "moose", "needy", "ogled", "plume", "quash", "roast", "sweep", "tramp",
+    "usher", "vivid", "waste", "youth", "zesty", "vexed", "wiper", "cater", "dance", "elite", "fiery", "gloat", "haloe", "irate", "jiffy", "knack", "loopa", "mirth", "nasty", "opted",
     "puree", "quizy", "resty", "scorn", "tweak", "unite", "vigor", "wafer", "xooms", "vasea"
   ];
   
